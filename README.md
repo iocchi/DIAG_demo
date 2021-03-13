@@ -59,7 +59,7 @@ Tested only on Linux systems.
 
 On host OS, move to `bin` folder of this repository
 
-        cd $HOME/src/DIAG_demo/bin
+    cd $HOME/src/DIAG_demo/bin
 
 
 * Start all services
@@ -69,26 +69,20 @@ On host OS, move to `bin` folder of this repository
 
 * Test actions
 
-    Test some actions
-
         ./test_actions.bash
 
 
 * Test plan
 
-    Test a basic plan
-
         ./test_plan.bash
 
-    The robot goes to the printer and checks the light color, it is red,
-    it goes informing about it to the blue person, then it goes back home.
+    The robot goes to the printer and checks the light color, if it is red,
+    the robot tells it to the blue person, then it goes back home.
 
 
 * Change light status
 
         ./setlight.bash [red|green]
-
-    When light is red, the robot goes to say it to the blue person.
 
 
 * Stop all services
