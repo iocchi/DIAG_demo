@@ -1,0 +1,93 @@
+version: "3.9"
+
+services:
+
+  stage:
+    image: iocchi/stage_environments
+    container_name: stage
+    network_mode: "host"
+    tty: true
+    environment:
+    - DISPLAY=:0
+    - ROS_IP=$ROS_IP
+    volumes:
+    - /tmp/.X11-unix:/tmp/.X11-unix
+    - $HOME/.Xauthority:/home/robot/.Xauthority
+    entrypoint:
+    - bash
+    - -ci
+    - "rosrun stage_environments start_simulation.py --server -server_port 9235"
+
+  base:
+    image: marrtino:base
+    build:
+      context: $MARRTINO_APPS_HOME/docker
+      dockerfile: Dockerfile.base
+    container_name: base
+    dns: 8.8.8.8
+    network_mode: "host"
+    tty: true
+    environment:
+    - ROS_IP=$ROS_IP
+    volumes:
+    - $HOME/src/marrtino_apps:/home/robot/src/marrtino_apps
+
+  navigation:
+    image: marrtino:navigation
+    build:
+      context: $MARRTINO_APPS_HOME/docker
+      dockerfile: Dockerfile.navigation
+    container_name: navigation
+    dns: 8.8.8.8
+    network_mode: "host"
+    tty: true
+    privileged: true
+    environment:
+    - DISPLAY=:0
+    - ROS_IP=$ROS_IP
+    volumes:
+    - $HOME/src/marrtino_apps:/home/robot/src/marrtino_apps
+
+  speech:
+    image: marrtino:speech
+    build:
+      context: $MARRTINO_APPS_HOME/docker
+      dockerfile: Dockerfile.speech
+    container_name: speech
+    dns: 8.8.8.8
+    network_mode: "host"
+    tty: true
+    privileged: true
+    environment:
+    - ROS_IP=$ROS_IP
+    volumes:
+    - /dev:/dev
+    - $HOME/src/marrtino_apps:/home/robot/src/marrtino_apps
+
+  actions:
+    image: marrtino:base
+    container_name: actions
+    dns: 8.8.8.8
+    network_mode: "host"
+    tty: true
+    volumes:
+    - $HOME/src/DIAG_demo:/home/robot/src/DIAG_demo
+    entrypoint:
+    - bash
+    - -ci
+    - "sleep 5 &&cd ~/src/DIAG_demo/bin && ./init.bash"
+
+  pnp:
+    image: iocchi/pnp
+    container_name: pnp
+    dns: 8.8.8.8
+    network_mode: "host"
+    tty: true
+    volumes:
+    - $HOME/src/DIAG_demo:/home/robot/src/DIAG_demo
+    entrypoint:
+    - bash
+    - -ci
+    - "sleep 10 && roscd pnp_ros && ./init.bash"
+
+

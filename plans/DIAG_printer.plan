@@ -1,0 +1,6 @@
+goto_printer1; 
+< lightcolor_printer1light_red ? goto_door3out ; say_red :
+  (not lightcolor_printer1light_red) ? 
+>;
+goto_home;
+
