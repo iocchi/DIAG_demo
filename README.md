@@ -86,7 +86,7 @@ On host OS, move to `bin` folder of this repository
 
         ./setlight.bash [red|green]
 
-    Run again the plan to see different behaviors according to the light color.
+    Run the plan to see different behaviors according to the light color.
 
 * Stop all services
 
