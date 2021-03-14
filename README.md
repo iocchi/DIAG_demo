@@ -30,6 +30,8 @@ Tested only on Linux systems.
 
         docker pull iocchi/stage_environments
 
+    Note: this docker image does not work on OS systems wuth Nvidia graphic cards and Nvidia drivers!
+
 * Petri Net Plans
 
         docker pull iocchi/pnp
