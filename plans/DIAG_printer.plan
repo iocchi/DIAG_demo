@@ -1,4 +1,3 @@
-goto_printer2;
 goto_printer1;
 < lightcolor_printer1light_red ? goto_door3out ; pass_door3; say_red; pass_door3 :
   (not lightcolor_printer1light_red) ? 

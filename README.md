@@ -82,7 +82,15 @@ On host OS, move to `bin` folder of this repository
 
 * Start all services
 
+    Start using OS display (it does not work with Nvidia cards)
+
         ./start.bash
+
+    Start with VNC
+
+        ./start.bash vnc
+
+    Open a browser at `http://localhost:3000` to see the simulator.
 
 
 * Test actions
