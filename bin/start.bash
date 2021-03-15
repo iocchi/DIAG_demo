@@ -1,12 +1,18 @@
 #!/bin/bash
 
 DCF=docker-compose.yml
+XSERVER=""
+
 if [ "$1" == "dev" ]; then
   DCF=docker-compose-dev.yml
 fi
+if [ "$1" == "vnc" ]; then
+  DCF=docker-compose-vnc.yml
+  XSERVER=xserver
+fi
 
 # docker services
-docker-compose -f $DCF up -d stage navigation actions pnp
+docker-compose -f $DCF up -d $XSERVER stage navigation actions pnp
 
 sleep 5
 

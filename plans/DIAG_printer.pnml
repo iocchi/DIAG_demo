@@ -33,7 +33,7 @@
     <position x="140" y="500" />    <size width="32" height="32" />
   </graphics>
   <name>
-    <value>goto_printer1.exec</value>
+    <value>goto_printer2.exec</value>
     <graphics>
       <offset x="0" y="40" />
     </graphics>
@@ -66,12 +66,12 @@
     </FillColor>
   </toolspecific>
 </place>
-<place id="n5">
+<place id="n6">
   <graphics>
     <position x="380" y="500" />    <size width="32" height="32" />
   </graphics>
   <name>
-    <value>5</value>
+    <value>goto_printer1.exec</value>
     <graphics>
       <offset x="0" y="40" />
     </graphics>
@@ -90,7 +90,7 @@
     <position x="500" y="500" />    <size width="32" height="32" />
   </graphics>
   <name>
-    <value>8</value>
+    <value>X8</value>
     <graphics>
       <offset x="0" y="40" />
     </graphics>
@@ -104,12 +104,12 @@
     </FillColor>
   </toolspecific>
 </place>
-<place id="n10">
+<place id="n9">
   <graphics>
-    <position x="980" y="500" />    <size width="32" height="32" />
+    <position x="620" y="500" />    <size width="32" height="32" />
   </graphics>
   <name>
-    <value>10</value>
+    <value>9</value>
     <graphics>
       <offset x="0" y="40" />
     </graphics>
@@ -125,10 +125,10 @@
 </place>
 <place id="n12">
   <graphics>
-    <position x="620" y="500" />    <size width="32" height="32" />
+    <position x="740" y="500" />    <size width="32" height="32" />
   </graphics>
   <name>
-    <value>goto_door3out.exec</value>
+    <value>12</value>
     <graphics>
       <offset x="0" y="40" />
     </graphics>
@@ -144,10 +144,10 @@
 </place>
 <place id="n14">
   <graphics>
-    <position x="740" y="500" />    <size width="32" height="32" />
+    <position x="1700" y="500" />    <size width="32" height="32" />
   </graphics>
   <name>
-    <value>X14</value>
+    <value>14</value>
     <graphics>
       <offset x="0" y="40" />
     </graphics>
@@ -166,7 +166,7 @@
     <position x="860" y="500" />    <size width="32" height="32" />
   </graphics>
   <name>
-    <value>say_red.exec</value>
+    <value>goto_door3out.exec</value>
     <graphics>
       <offset x="0" y="40" />
     </graphics>
@@ -199,12 +199,12 @@
     </FillColor>
   </toolspecific>
 </place>
-<place id="n19">
+<place id="n20">
   <graphics>
     <position x="1100" y="500" />    <size width="32" height="32" />
   </graphics>
   <name>
-    <value>19</value>
+    <value>pass_door3.exec</value>
     <graphics>
       <offset x="0" y="40" />
     </graphics>
@@ -218,9 +218,123 @@
     </FillColor>
   </toolspecific>
 </place>
-<place id="n23">
+<place id="n22">
   <graphics>
     <position x="1220" y="500" />    <size width="32" height="32" />
+  </graphics>
+  <name>
+    <value>X22</value>
+    <graphics>
+      <offset x="0" y="40" />
+    </graphics>
+  </name>
+  <toolspecific tool="JARP" version="1.2">
+    <FrameColor>
+      <value>java.awt.Color[r=0,g=0,b=0]</value>
+    </FrameColor>
+    <FillColor>
+      <value>java.awt.Color[r=255,g=255,b=255]</value>
+    </FillColor>
+  </toolspecific>
+</place>
+<place id="n24">
+  <graphics>
+    <position x="1340" y="500" />    <size width="32" height="32" />
+  </graphics>
+  <name>
+    <value>say_red.exec</value>
+    <graphics>
+      <offset x="0" y="40" />
+    </graphics>
+  </name>
+  <toolspecific tool="JARP" version="1.2">
+    <FrameColor>
+      <value>java.awt.Color[r=0,g=0,b=0]</value>
+    </FrameColor>
+    <FillColor>
+      <value>java.awt.Color[r=255,g=255,b=255]</value>
+    </FillColor>
+  </toolspecific>
+</place>
+<place id="n26">
+  <graphics>
+    <position x="1460" y="500" />    <size width="32" height="32" />
+  </graphics>
+  <name>
+    <value>X26</value>
+    <graphics>
+      <offset x="0" y="40" />
+    </graphics>
+  </name>
+  <toolspecific tool="JARP" version="1.2">
+    <FrameColor>
+      <value>java.awt.Color[r=0,g=0,b=0]</value>
+    </FrameColor>
+    <FillColor>
+      <value>java.awt.Color[r=255,g=255,b=255]</value>
+    </FillColor>
+  </toolspecific>
+</place>
+<place id="n28">
+  <graphics>
+    <position x="1580" y="500" />    <size width="32" height="32" />
+  </graphics>
+  <name>
+    <value>pass_door3.exec</value>
+    <graphics>
+      <offset x="0" y="40" />
+    </graphics>
+  </name>
+  <toolspecific tool="JARP" version="1.2">
+    <FrameColor>
+      <value>java.awt.Color[r=0,g=0,b=0]</value>
+    </FrameColor>
+    <FillColor>
+      <value>java.awt.Color[r=255,g=255,b=255]</value>
+    </FillColor>
+  </toolspecific>
+</place>
+<place id="n30">
+  <graphics>
+    <position x="1700" y="500" />    <size width="32" height="32" />
+  </graphics>
+  <name>
+    <value>X30</value>
+    <graphics>
+      <offset x="0" y="40" />
+    </graphics>
+  </name>
+  <toolspecific tool="JARP" version="1.2">
+    <FrameColor>
+      <value>java.awt.Color[r=0,g=0,b=0]</value>
+    </FrameColor>
+    <FillColor>
+      <value>java.awt.Color[r=255,g=255,b=255]</value>
+    </FillColor>
+  </toolspecific>
+</place>
+<place id="n31">
+  <graphics>
+    <position x="1820" y="500" />    <size width="32" height="32" />
+  </graphics>
+  <name>
+    <value>31</value>
+    <graphics>
+      <offset x="0" y="40" />
+    </graphics>
+  </name>
+  <toolspecific tool="JARP" version="1.2">
+    <FrameColor>
+      <value>java.awt.Color[r=0,g=0,b=0]</value>
+    </FrameColor>
+    <FillColor>
+      <value>java.awt.Color[r=255,g=255,b=255]</value>
+    </FillColor>
+  </toolspecific>
+</place>
+<place id="n35">
+  <graphics>
+    <position x="1940" y="500" />    <size width="32" height="32" />
   </graphics>
   <name>
     <value>goto_home.exec</value>
@@ -237,9 +351,9 @@
     </FillColor>
   </toolspecific>
 </place>
-<place id="n25">
+<place id="n37">
   <graphics>
-    <position x="1340" y="500" />    <size width="32" height="32" />
+    <position x="2060" y="500" />    <size width="32" height="32" />
   </graphics>
   <name>
     <value>goal</value>
@@ -260,7 +374,7 @@
   <graphics>
     <position x="80" y="500" />    <size width="8" height="32" />  </graphics>
   <name>
-    <value>goto_printer1.start</value>
+    <value>goto_printer2.start</value>
     <graphics>
       <offset x="0" y="-20" />
     </graphics>
@@ -278,7 +392,7 @@
   <graphics>
     <position x="200" y="500" />    <size width="8" height="32" />  </graphics>
   <name>
-    <value>goto_printer1.end</value>
+    <value>goto_printer2.end</value>
     <graphics>
       <offset x="0" y="-20" />
     </graphics>
@@ -292,11 +406,11 @@
     </FillColor>
   </toolspecific>
 </transition>
-<transition id="n6">
+<transition id="n5">
   <graphics>
     <position x="320" y="500" />    <size width="8" height="32" />  </graphics>
   <name>
-    <value> </value>
+    <value>goto_printer1.start</value>
     <graphics>
       <offset x="0" y="-20" />
     </graphics>
@@ -314,7 +428,7 @@
   <graphics>
     <position x="440" y="500" />    <size width="8" height="32" />  </graphics>
   <name>
-    <value>[lightcolor_printer1light_red]</value>
+    <value>goto_printer1.end</value>
     <graphics>
       <offset x="0" y="-20" />
     </graphics>
@@ -328,11 +442,11 @@
     </FillColor>
   </toolspecific>
 </transition>
-<transition id="n9">
+<transition id="n10">
   <graphics>
-    <position x="440" y="600" />    <size width="8" height="32" />  </graphics>
+    <position x="560" y="500" />    <size width="8" height="32" />  </graphics>
   <name>
-    <value>[(not lightcolor_printer1light_red)]</value>
+    <value> </value>
     <graphics>
       <offset x="0" y="-20" />
     </graphics>
@@ -348,9 +462,9 @@
 </transition>
 <transition id="n11">
   <graphics>
-    <position x="560" y="500" />    <size width="8" height="32" />  </graphics>
+    <position x="680" y="500" />    <size width="8" height="32" />  </graphics>
   <name>
-    <value>goto_door3out.start</value>
+    <value>[lightcolor_printer1light_red]</value>
     <graphics>
       <offset x="0" y="-20" />
     </graphics>
@@ -366,9 +480,9 @@
 </transition>
 <transition id="n13">
   <graphics>
-    <position x="680" y="500" />    <size width="8" height="32" />  </graphics>
+    <position x="680" y="600" />    <size width="8" height="32" />  </graphics>
   <name>
-    <value>goto_door3out.end</value>
+    <value>[(not lightcolor_printer1light_red)]</value>
     <graphics>
       <offset x="0" y="-20" />
     </graphics>
@@ -386,7 +500,7 @@
   <graphics>
     <position x="800" y="500" />    <size width="8" height="32" />  </graphics>
   <name>
-    <value>say_red.start</value>
+    <value>goto_door3out.start</value>
     <graphics>
       <offset x="0" y="-20" />
     </graphics>
@@ -404,7 +518,7 @@
   <graphics>
     <position x="920" y="500" />    <size width="8" height="32" />  </graphics>
   <name>
-    <value>say_red.end</value>
+    <value>goto_door3out.end</value>
     <graphics>
       <offset x="0" y="-20" />
     </graphics>
@@ -418,11 +532,11 @@
     </FillColor>
   </toolspecific>
 </transition>
-<transition id="n20">
+<transition id="n19">
   <graphics>
     <position x="1040" y="500" />    <size width="8" height="32" />  </graphics>
   <name>
-    <value> </value>
+    <value>pass_door3.start</value>
     <graphics>
       <offset x="0" y="-20" />
     </graphics>
@@ -438,7 +552,97 @@
 </transition>
 <transition id="n21">
   <graphics>
-    <position x="1040" y="500" />    <size width="8" height="32" />  </graphics>
+    <position x="1160" y="500" />    <size width="8" height="32" />  </graphics>
+  <name>
+    <value>pass_door3.end</value>
+    <graphics>
+      <offset x="0" y="-20" />
+    </graphics>
+  </name>
+  <toolspecific tool="JARP" version="1.2">
+    <FrameColor>
+      <value>java.awt.Color[r=0,g=0,b=0]</value>
+    </FrameColor>
+    <FillColor>
+      <value>java.awt.Color[r=200,g=200,b=220]</value>
+    </FillColor>
+  </toolspecific>
+</transition>
+<transition id="n23">
+  <graphics>
+    <position x="1280" y="500" />    <size width="8" height="32" />  </graphics>
+  <name>
+    <value>say_red.start</value>
+    <graphics>
+      <offset x="0" y="-20" />
+    </graphics>
+  </name>
+  <toolspecific tool="JARP" version="1.2">
+    <FrameColor>
+      <value>java.awt.Color[r=0,g=0,b=0]</value>
+    </FrameColor>
+    <FillColor>
+      <value>java.awt.Color[r=200,g=200,b=220]</value>
+    </FillColor>
+  </toolspecific>
+</transition>
+<transition id="n25">
+  <graphics>
+    <position x="1400" y="500" />    <size width="8" height="32" />  </graphics>
+  <name>
+    <value>say_red.end</value>
+    <graphics>
+      <offset x="0" y="-20" />
+    </graphics>
+  </name>
+  <toolspecific tool="JARP" version="1.2">
+    <FrameColor>
+      <value>java.awt.Color[r=0,g=0,b=0]</value>
+    </FrameColor>
+    <FillColor>
+      <value>java.awt.Color[r=200,g=200,b=220]</value>
+    </FillColor>
+  </toolspecific>
+</transition>
+<transition id="n27">
+  <graphics>
+    <position x="1520" y="500" />    <size width="8" height="32" />  </graphics>
+  <name>
+    <value>pass_door3.start</value>
+    <graphics>
+      <offset x="0" y="-20" />
+    </graphics>
+  </name>
+  <toolspecific tool="JARP" version="1.2">
+    <FrameColor>
+      <value>java.awt.Color[r=0,g=0,b=0]</value>
+    </FrameColor>
+    <FillColor>
+      <value>java.awt.Color[r=200,g=200,b=220]</value>
+    </FillColor>
+  </toolspecific>
+</transition>
+<transition id="n29">
+  <graphics>
+    <position x="1640" y="500" />    <size width="8" height="32" />  </graphics>
+  <name>
+    <value>pass_door3.end</value>
+    <graphics>
+      <offset x="0" y="-20" />
+    </graphics>
+  </name>
+  <toolspecific tool="JARP" version="1.2">
+    <FrameColor>
+      <value>java.awt.Color[r=0,g=0,b=0]</value>
+    </FrameColor>
+    <FillColor>
+      <value>java.awt.Color[r=200,g=200,b=220]</value>
+    </FillColor>
+  </toolspecific>
+</transition>
+<transition id="n32">
+  <graphics>
+    <position x="1760" y="500" />    <size width="8" height="32" />  </graphics>
   <name>
     <value> </value>
     <graphics>
@@ -454,9 +658,27 @@
     </FillColor>
   </toolspecific>
 </transition>
-<transition id="n22">
+<transition id="n33">
   <graphics>
-    <position x="1160" y="500" />    <size width="8" height="32" />  </graphics>
+    <position x="1760" y="500" />    <size width="8" height="32" />  </graphics>
+  <name>
+    <value> </value>
+    <graphics>
+      <offset x="0" y="-20" />
+    </graphics>
+  </name>
+  <toolspecific tool="JARP" version="1.2">
+    <FrameColor>
+      <value>java.awt.Color[r=0,g=0,b=0]</value>
+    </FrameColor>
+    <FillColor>
+      <value>java.awt.Color[r=200,g=200,b=220]</value>
+    </FillColor>
+  </toolspecific>
+</transition>
+<transition id="n34">
+  <graphics>
+    <position x="1880" y="500" />    <size width="8" height="32" />  </graphics>
   <name>
     <value>goto_home.start</value>
     <graphics>
@@ -472,9 +694,9 @@
     </FillColor>
   </toolspecific>
 </transition>
-<transition id="n24">
+<transition id="n36">
   <graphics>
-    <position x="1280" y="500" />    <size width="8" height="32" />  </graphics>
+    <position x="2000" y="500" />    <size width="8" height="32" />  </graphics>
   <name>
     <value>goto_home.end</value>
     <graphics>
@@ -542,7 +764,7 @@
     </ArrowMode>
   </toolspecific>
 </arc>
-<arc id="a4" source="n4" target="n6" >
+<arc id="a4" source="n4" target="n5" >
     <graphics>
       <offset x="0" y="40" />
     </graphics>
@@ -555,7 +777,7 @@
     </ArrowMode>
   </toolspecific>
 </arc>
-<arc id="a5" source="n6" target="n5" >
+<arc id="a5" source="n5" target="n6" >
     <graphics>
       <offset x="0" y="40" />
     </graphics>
@@ -568,7 +790,7 @@
     </ArrowMode>
   </toolspecific>
 </arc>
-<arc id="a6" source="n5" target="n7" >
+<arc id="a6" source="n6" target="n7" >
     <graphics>
       <offset x="0" y="40" />
     </graphics>
@@ -594,7 +816,7 @@
     </ArrowMode>
   </toolspecific>
 </arc>
-<arc id="a8" source="n5" target="n9" >
+<arc id="a8" source="n8" target="n10" >
     <graphics>
       <offset x="0" y="40" />
     </graphics>
@@ -607,7 +829,7 @@
     </ArrowMode>
   </toolspecific>
 </arc>
-<arc id="a9" source="n9" target="n10" >
+<arc id="a9" source="n10" target="n9" >
     <graphics>
       <offset x="0" y="40" />
     </graphics>
@@ -620,7 +842,7 @@
     </ArrowMode>
   </toolspecific>
 </arc>
-<arc id="a10" source="n8" target="n11" >
+<arc id="a10" source="n9" target="n11" >
     <graphics>
       <offset x="0" y="40" />
     </graphics>
@@ -646,7 +868,7 @@
     </ArrowMode>
   </toolspecific>
 </arc>
-<arc id="a12" source="n12" target="n13" >
+<arc id="a12" source="n9" target="n13" >
     <graphics>
       <offset x="0" y="40" />
     </graphics>
@@ -672,7 +894,7 @@
     </ArrowMode>
   </toolspecific>
 </arc>
-<arc id="a14" source="n14" target="n15" >
+<arc id="a14" source="n12" target="n15" >
     <graphics>
       <offset x="0" y="40" />
     </graphics>
@@ -724,7 +946,7 @@
     </ArrowMode>
   </toolspecific>
 </arc>
-<arc id="a18" source="n18" target="n20" >
+<arc id="a18" source="n18" target="n19" >
     <graphics>
       <offset x="0" y="40" />
     </graphics>
@@ -737,7 +959,7 @@
     </ArrowMode>
   </toolspecific>
 </arc>
-<arc id="a19" source="n20" target="n19" >
+<arc id="a19" source="n19" target="n20" >
     <graphics>
       <offset x="0" y="40" />
     </graphics>
@@ -750,7 +972,7 @@
     </ArrowMode>
   </toolspecific>
 </arc>
-<arc id="a20" source="n10" target="n21" >
+<arc id="a20" source="n20" target="n21" >
     <graphics>
       <offset x="0" y="40" />
     </graphics>
@@ -763,7 +985,7 @@
     </ArrowMode>
   </toolspecific>
 </arc>
-<arc id="a21" source="n21" target="n19" >
+<arc id="a21" source="n21" target="n22" >
     <graphics>
       <offset x="0" y="40" />
     </graphics>
@@ -776,7 +998,7 @@
     </ArrowMode>
   </toolspecific>
 </arc>
-<arc id="a22" source="n19" target="n22" >
+<arc id="a22" source="n22" target="n23" >
     <graphics>
       <offset x="0" y="40" />
     </graphics>
@@ -789,7 +1011,7 @@
     </ArrowMode>
   </toolspecific>
 </arc>
-<arc id="a23" source="n22" target="n23" >
+<arc id="a23" source="n23" target="n24" >
     <graphics>
       <offset x="0" y="40" />
     </graphics>
@@ -802,7 +1024,7 @@
     </ArrowMode>
   </toolspecific>
 </arc>
-<arc id="a24" source="n23" target="n24" >
+<arc id="a24" source="n24" target="n25" >
     <graphics>
       <offset x="0" y="40" />
     </graphics>
@@ -815,7 +1037,163 @@
     </ArrowMode>
   </toolspecific>
 </arc>
-<arc id="a25" source="n24" target="n25" >
+<arc id="a25" source="n25" target="n26" >
+    <graphics>
+      <offset x="0" y="40" />
+    </graphics>
+  <toolspecific tool="JARP" version="1.2">
+    <FrameColor>
+      <value>java.awt.Color[r=128,g=128,b=128]</value>
+    </FrameColor>
+    <ArrowMode>
+      <value>2</value>
+    </ArrowMode>
+  </toolspecific>
+</arc>
+<arc id="a26" source="n26" target="n27" >
+    <graphics>
+      <offset x="0" y="40" />
+    </graphics>
+  <toolspecific tool="JARP" version="1.2">
+    <FrameColor>
+      <value>java.awt.Color[r=128,g=128,b=128]</value>
+    </FrameColor>
+    <ArrowMode>
+      <value>2</value>
+    </ArrowMode>
+  </toolspecific>
+</arc>
+<arc id="a27" source="n27" target="n28" >
+    <graphics>
+      <offset x="0" y="40" />
+    </graphics>
+  <toolspecific tool="JARP" version="1.2">
+    <FrameColor>
+      <value>java.awt.Color[r=128,g=128,b=128]</value>
+    </FrameColor>
+    <ArrowMode>
+      <value>2</value>
+    </ArrowMode>
+  </toolspecific>
+</arc>
+<arc id="a28" source="n28" target="n29" >
+    <graphics>
+      <offset x="0" y="40" />
+    </graphics>
+  <toolspecific tool="JARP" version="1.2">
+    <FrameColor>
+      <value>java.awt.Color[r=128,g=128,b=128]</value>
+    </FrameColor>
+    <ArrowMode>
+      <value>2</value>
+    </ArrowMode>
+  </toolspecific>
+</arc>
+<arc id="a29" source="n29" target="n30" >
+    <graphics>
+      <offset x="0" y="40" />
+    </graphics>
+  <toolspecific tool="JARP" version="1.2">
+    <FrameColor>
+      <value>java.awt.Color[r=128,g=128,b=128]</value>
+    </FrameColor>
+    <ArrowMode>
+      <value>2</value>
+    </ArrowMode>
+  </toolspecific>
+</arc>
+<arc id="a30" source="n30" target="n32" >
+    <graphics>
+      <offset x="0" y="40" />
+    </graphics>
+  <toolspecific tool="JARP" version="1.2">
+    <FrameColor>
+      <value>java.awt.Color[r=128,g=128,b=128]</value>
+    </FrameColor>
+    <ArrowMode>
+      <value>2</value>
+    </ArrowMode>
+  </toolspecific>
+</arc>
+<arc id="a31" source="n32" target="n31" >
+    <graphics>
+      <offset x="0" y="40" />
+    </graphics>
+  <toolspecific tool="JARP" version="1.2">
+    <FrameColor>
+      <value>java.awt.Color[r=128,g=128,b=128]</value>
+    </FrameColor>
+    <ArrowMode>
+      <value>2</value>
+    </ArrowMode>
+  </toolspecific>
+</arc>
+<arc id="a32" source="n14" target="n33" >
+    <graphics>
+      <offset x="0" y="40" />
+    </graphics>
+  <toolspecific tool="JARP" version="1.2">
+    <FrameColor>
+      <value>java.awt.Color[r=128,g=128,b=128]</value>
+    </FrameColor>
+    <ArrowMode>
+      <value>2</value>
+    </ArrowMode>
+  </toolspecific>
+</arc>
+<arc id="a33" source="n33" target="n31" >
+    <graphics>
+      <offset x="0" y="40" />
+    </graphics>
+  <toolspecific tool="JARP" version="1.2">
+    <FrameColor>
+      <value>java.awt.Color[r=128,g=128,b=128]</value>
+    </FrameColor>
+    <ArrowMode>
+      <value>2</value>
+    </ArrowMode>
+  </toolspecific>
+</arc>
+<arc id="a34" source="n31" target="n34" >
+    <graphics>
+      <offset x="0" y="40" />
+    </graphics>
+  <toolspecific tool="JARP" version="1.2">
+    <FrameColor>
+      <value>java.awt.Color[r=128,g=128,b=128]</value>
+    </FrameColor>
+    <ArrowMode>
+      <value>2</value>
+    </ArrowMode>
+  </toolspecific>
+</arc>
+<arc id="a35" source="n34" target="n35" >
+    <graphics>
+      <offset x="0" y="40" />
+    </graphics>
+  <toolspecific tool="JARP" version="1.2">
+    <FrameColor>
+      <value>java.awt.Color[r=128,g=128,b=128]</value>
+    </FrameColor>
+    <ArrowMode>
+      <value>2</value>
+    </ArrowMode>
+  </toolspecific>
+</arc>
+<arc id="a36" source="n35" target="n36" >
+    <graphics>
+      <offset x="0" y="40" />
+    </graphics>
+  <toolspecific tool="JARP" version="1.2">
+    <FrameColor>
+      <value>java.awt.Color[r=128,g=128,b=128]</value>
+    </FrameColor>
+    <ArrowMode>
+      <value>2</value>
+    </ArrowMode>
+  </toolspecific>
+</arc>
+<arc id="a37" source="n36" target="n37" >
     <graphics>
       <offset x="0" y="40" />
     </graphics>

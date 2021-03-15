@@ -83,7 +83,8 @@ class FluentProxy:
         self.end()
 
     def isRunning(self):
-        self.do_run = self.cthread != None and self.cthread.is_alive()
+        if self.cthread != None and not self.cthread.is_alive():
+            self.do_run = False
         return self.do_run
 
     def setValue(self, params, value):  # 1: true,  0: false,  -1: unknown

@@ -14,12 +14,23 @@ from move_base_msgs.msg import MoveBaseAction, MoveBaseGoal
 sys.path.append("..")  # actionproxy
 from actionproxy import ActionProxy
 
-ACTION_NAME = 'goto'
+ACTION_NAME = 'pass'
 ACTION_move_base = 'move_base'  # ROS action
 TOPIC_amcl_pose = 'amcl_pose'   # localizer pose
 
+'''
+Pass through a door
 
-class GotoActionProxy(ActionProxy):
+Requires definition in the semantic map
+
+    door3in:  { gotopose: [ 9.9, -2.9, 90 ] }
+    door3out: { gotopose: [ 9.75, -1.3, -90 ] }
+
+param: doorname (e.g., door3)
+
+'''
+
+class PassActionProxy(ActionProxy):
 
     def __init__(self, actionname):
         ActionProxy.__init__(self, actionname)
@@ -46,20 +57,19 @@ class GotoActionProxy(ActionProxy):
         return r
 
     def target_params(self, params):
-        #print(params)
-        r = None
         v = params.split('_')
-        if (len(v)==3):
-            r =[float(v[0]), float(v[1]), float(v[2])]
-        else:
-            # get pose from semantic map
-            if params=='random':
-                params = random.choice(['printer1', 'printer2', 'door1', 'door2', 'door3'])
+        doorname = v[0] # e.g. door1
 
-            print("goto %s ..." %params)
-            r = self.get_gotopose(params)
+        p1 = self.get_gotopose(doorname+'in')
+        p2 = self.get_gotopose(doorname+'out')
 
-        return r
+        if p1==None or p2==None:
+            return None
+
+        d1 = self.distance(self.map_robot_pose, p1)
+        d2 = self.distance(self.map_robot_pose, p2)
+
+        return p2 if (d1 < d2) else p1
 
     def getRobotPose(self):
         return self.map_robot_pose
@@ -89,26 +99,33 @@ class GotoActionProxy(ActionProxy):
 
     def action_thread(self, params):
 
+        self.loc_sub = rospy.Subscriber(TOPIC_amcl_pose, PoseWithCovarianceStamped, self.localizer_cb)
+        rospy.sleep(0.2) # wait to get pose from localizer
+
         target_pose = self.target_params(params)
         if target_pose is None:
             return
 
-        self.loc_sub = rospy.Subscriber(TOPIC_amcl_pose, PoseWithCovarianceStamped, self.localizer_cb)
-
         self.send_goal(target_pose)
 
-        #d = self.distance(self.map_robot_pose, target_pose)
-        #print(d)
-        finished = False # d < 1.0
+        xytol_param = '/move_base_node/DWAPlannerROS/xy_goal_tolerance'
+        yawtol_param = '/move_base_node/DWAPlannerROS/yaw_goal_tolerance'
+        xytol = rospy.get_param(xytol_param)
+        yawtol = rospy.get_param(yawtol_param)
+        #rospy.set_param(yawtol_param,2*math.pi)
+
+        d = self.distance(self.map_robot_pose, target_pose)
+        print(d)
+        finished = d < xytol * 1.2
         while self.do_run and not finished:
             self.ac_movebase.wait_for_result(rospy.Duration(1))
             status = self.ac_movebase.get_state() # 1 ACTIVE, 3 SUCCEEDED, 4 ABORTED
             result = self.ac_movebase.get_result() 
             
-            #d = self.distance(self.map_robot_pose, target_pose)
+            d = self.distance(self.map_robot_pose, target_pose)
             #print("%.1f %r %r" %(d,status,result))
-
-            finished = (status == GoalStatus.SUCCEEDED) or (status == GoalStatus.ABORTED)
+            
+            finished = (d < xytol * 1.2) or (status == GoalStatus.SUCCEEDED) or (status == GoalStatus.ABORTED)
 
         state = self.ac_movebase.get_state()
         if state == GoalStatus.SUCCEEDED:
@@ -122,6 +139,8 @@ class GotoActionProxy(ActionProxy):
 
         self.loc_sub.unregister()
 
+        #rospy.set_param(yawtol_param,yawtol)
+
 
 
 if __name__ == "__main__":
@@ -130,7 +149,7 @@ if __name__ == "__main__":
     if (len(sys.argv)>1):
         params = sys.argv[1]
 
-    a = GotoActionProxy(ACTION_NAME)
+    a = PassActionProxy(ACTION_NAME)
     
     if params is not None:
         a.execute(params)  # blocking, CTRL-C to interrupt
