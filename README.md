@@ -35,7 +35,8 @@ Tested on Linux Ubuntu systems with Docker version 19.03.6 and docker-compose ve
 
         docker pull iocchi/stage_environments
 
-    Note: this docker image does not work on OS systems wuth Nvidia graphic cards and Nvidia drivers!
+    Note: this docker image does not work on OS systems with Nvidia graphic cards and Nvidia drivers!
+    Use VNC-based xserver if you have problems with visualizing the simulator.
 
 * Petri Net Plans
 
