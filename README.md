@@ -10,6 +10,11 @@ Tested only on Linux systems.
 
 * [docker-compose](https://docs.docker.com/compose/install/)
 
+    You need to install the latest version 1.28, check it with
+
+        docker-compose --version
+
+
 # Setup
 
 * Setup folder for source files
@@ -42,6 +47,15 @@ Tested only on Linux systems.
         docker build -t marrtino:base -f Dockerfile.base .
         docker build -t marrtino:navigation -f Dockerfile.navigation .
 
+* MARRTINO_APPS_HOME environment variable
+
+    Set `MARRTINO_APPS_HOME` to  `marrtino_apps` folder
+
+    In `~/.bashrc`
+
+        export MARRTINO_APPS_HOME=$HOME/src/marrtino_apps
+
+
 * ROS_IP environment variable
 
     Set `ROS_IP` to localhost `127.0.0.1`
@@ -50,10 +64,12 @@ Tested only on Linux systems.
 
         export ROS_IP=127.0.0.1
 
-    Open a new terminal and check the settings with 
+* Open a new terminal before running the demo
+    
+    Check the settings
 
         echo $ROS_IP
-
+        echo $MARRTINO_APPS_HOME
 
 # Run
 
