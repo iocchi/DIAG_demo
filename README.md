@@ -41,6 +41,10 @@ Tested on Linux Ubuntu systems with Docker version 19.03.6 and docker-compose ve
 
         docker pull iocchi/pnp
 
+* VNC-based xserver (if you want to run it GUI-less or have problems with your graphic card)
+
+        docker pull devrt/xserver
+
 * MARRtino apps
 
         cd $HOME/src
