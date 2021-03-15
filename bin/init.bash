@@ -16,6 +16,9 @@ tmux send-keys -t $SESSION:2 "cd ../fluents && python lightcolor_fluentproxy.py"
 tmux new-window -t $SESSION:3 -n 'pass'
 tmux send-keys -t $SESSION:3 "cd ../actions && python pass_actionproxy.py" C-m
 
+tmux new-window -t $SESSION:4 -n 'open'
+tmux send-keys -t $SESSION:4 "cd ../fluents && python open_fluentproxy.py" C-m
+
 while [ 1 ]; do
   sleep 60
 done

@@ -1,5 +1,12 @@
 goto_printer1;
-< lightcolor_printer1light_red ? goto_door3out ; pass_door3; say_red; pass_door3 :
+< lightcolor_printer1light_red ? 
+    goto_door2out ; 
+    < open ? pass_door2; say_red; pass_door2 :
+      (not open) ? goto_door3out ; 
+            < open ? pass_door3; say_red; pass_door3 :
+              (not open) ? 
+            > 
+    > :
   (not lightcolor_printer1light_red) ? 
 >;
 goto_home;

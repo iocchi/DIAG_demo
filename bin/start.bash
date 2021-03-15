@@ -21,7 +21,7 @@ docker ps
 sleep 1
 
 # Stage with map
-echo 'DISB1;marrtino' | netcat -w 1 localhost 9235
+echo 'DISB1;orazio' | netcat -w 1 localhost 9235
 sleep 5
 
 # Navigation
@@ -29,6 +29,9 @@ echo '@loc' | netcat -w 1 localhost 9238
 sleep 3
 echo '@movebase' | netcat -w 1 localhost 9238
 sleep 3
+echo '@obstacleavoidance' | netcat -w 1 localhost 9238
+sleep 3
+
 
 # check
 docker exec -it stage bash -ci "rosnode list"

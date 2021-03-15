@@ -89,7 +89,10 @@ class FluentProxy:
 
     def setValue(self, params, value):  # 1: true,  0: false,  -1: unknown
         self.lasttime = rospy.Time.now()
-        rospy.set_param(self.rosparam+"_"+params, value)
+        if params == None or params == '':
+            rospy.set_param(self.rosparam, value)
+        else:
+            rospy.set_param(self.rosparam+"_"+params, value)
 
     def getValue(self, params):
         v = -1
