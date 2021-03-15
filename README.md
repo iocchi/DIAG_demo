@@ -1,6 +1,6 @@
 # Install
 
-Tested only on Linux systems.
+Tested on Linux Ubuntu systems with Docker version 19.03.6 and docker-compose version 1.28.2.
 
 * [docker](http://www.docker.com)
 
