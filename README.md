@@ -35,6 +35,8 @@ Tested only on Linux systems.
 
         docker pull iocchi/stage_environments
 
+    Note: this docker image does not work on OS systems wuth Nvidia graphic cards and Nvidia drivers!
+
 * Petri Net Plans
 
         docker pull iocchi/pnp
@@ -100,6 +102,7 @@ On host OS, move to `bin` folder of this repository
 
         ./setlight.bash [red|green]
 
+    Run the plan to see different behaviors according to the light color.
 
 * Stop all services
 
