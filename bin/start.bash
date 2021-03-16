@@ -29,8 +29,6 @@ echo '@loc' | netcat -w 1 localhost 9238
 sleep 3
 echo '@movebase' | netcat -w 1 localhost 9238
 sleep 3
-echo '@obstacleavoidance' | netcat -w 1 localhost 9238
-sleep 3
 
 
 # check

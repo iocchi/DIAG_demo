@@ -1,0 +1,10 @@
+goto_printer1;
+< lightcolor_printer1light_red ? 
+    goto_door3out; 
+    < open ? pass_door3; say_red; pass_door3 :
+      (not open) ? 
+    > :
+  (not lightcolor_printer1light_red) ? 
+>;
+goto_home;
+
