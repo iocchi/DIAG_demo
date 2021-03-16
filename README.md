@@ -105,10 +105,15 @@ On host OS, move to `bin` folder of this repository
 
 * Test plan
 
-        ./test_plan.bash
+        ./test_plan.bash [<plan_name>|stop]
 
-    The robot goes to the printer and checks the light color, if it is red,
-    the robot tells it to the blue person, then it goes back home.
+    Example:
+
+        ./test_plan.bash DIAG_printer_2
+
+    The robot goes to the printer and checks the light color, if it is red, the robot tells it to the blue person, then it goes back home.
+
+    See other plans in the `plans` folder.
 
 
 * Change light status
