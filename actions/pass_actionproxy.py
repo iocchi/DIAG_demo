@@ -11,7 +11,6 @@ from actionlib_msgs.msg import *
 from geometry_msgs.msg import Twist, Quaternion, PoseWithCovarianceStamped
 from nav_msgs.msg import Odometry
 
-sys.path.append("..")  # actionproxy
 from actionproxy import ActionProxy
 
 ACTION_NAME = 'pass'

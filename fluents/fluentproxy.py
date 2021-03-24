@@ -41,7 +41,7 @@ PARAM_PNPCONDITIONBUFFER = "pnp/conditionsBuffer/"
 
 class FluentProxy:
 
-    def __init__(self, fluentname):
+    def __init__(self, fluentname, rosnode=True):
 
         self.fluentname = fluentname
         self.timestamp = None   # time of current value
@@ -49,9 +49,10 @@ class FluentProxy:
         self.cthread = None
         self.rosparam = PARAM_PNPCONDITIONBUFFER + fluentname
 
-        # init ROS node
-        nodename = fluentname+"_fluentproxy"
-        rospy.init_node(nodename,  disable_signals=True)
+        if rosnode:
+            # init ROS node
+            nodename = fluentname+"_fluentproxy"
+            rospy.init_node(nodename,  disable_signals=True)
 
         # subscribers
         self.actionproxy_sub = rospy.Subscriber(TOPIC_PNPACTIONPROXY_STR, String, self.actionproxy_cb)  # only to check quit signal

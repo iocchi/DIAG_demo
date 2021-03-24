@@ -11,7 +11,6 @@ from actionlib_msgs.msg import *
 from geometry_msgs.msg import Quaternion, PoseWithCovarianceStamped
 from move_base_msgs.msg import MoveBaseAction, MoveBaseGoal
 
-sys.path.append("..")  # actionproxy
 from actionproxy import ActionProxy
 
 ACTION_NAME = 'goto'

@@ -5,7 +5,6 @@ import sys
 import rospy
 from std_msgs.msg import String
 
-#sys.path.append("....")                # <--- rospy PLEXI folder
 from actionproxy import ActionProxy
 
 ACTION_NAME = 'say'
@@ -20,7 +19,6 @@ class SayActionProxy(ActionProxy):
 
     def __del__(self):
         ActionProxy.__del__(self)
-                                        # <--- action del
 
     #def interrupt(self):
     #    ActionProxy.end(self)
