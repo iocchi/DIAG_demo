@@ -30,20 +30,11 @@ services:
     entrypoint:
     - bash
     - -ci
-    - "rosrun stage_environments start_simulation.py --server -server_port 9235"
-
-
-#    volumes:
-#    - /tmp/.X11-unix:/tmp/.X11-unix
-#    - $HOME/.Xauthority:/home/robot/.Xauthority
-
+    - "rosrun stage_environments start_simulation.py --tmux --server -server_port 9235"
 
 
   base:
-    image: marrtino:base
-    build:
-      context: $MARRTINO_APPS_HOME/docker
-      dockerfile: Dockerfile.base
+    image: iocchi/marrtino:base
     container_name: base
     dns: 8.8.8.8
     network_mode: "host"
@@ -51,13 +42,10 @@ services:
     environment:
     - ROS_IP=$ROS_IP
     volumes:
-    - $HOME/src/marrtino_apps:/home/robot/src/marrtino_apps
+    - $MARRTINO_APPS_HOME:/home/robot/src/marrtino_apps
 
   navigation:
-    image: marrtino:navigation
-    build:
-      context: $MARRTINO_APPS_HOME/docker
-      dockerfile: Dockerfile.navigation
+    image: iocchi/marrtino:navigation
     container_name: navigation
     dns: 8.8.8.8
     network_mode: "host"
@@ -67,13 +55,10 @@ services:
     - DISPLAY=:0
     - ROS_IP=$ROS_IP
     volumes:
-    - $HOME/src/marrtino_apps:/home/robot/src/marrtino_apps
+    - $MARRTINO_APPS_HOME:/home/robot/src/marrtino_apps
 
   speech:
-    image: marrtino:speech
-    build:
-      context: $MARRTINO_APPS_HOME/docker
-      dockerfile: Dockerfile.speech
+    image: iocchi/marrtino:speech
     container_name: speech
     dns: 8.8.8.8
     network_mode: "host"
@@ -83,10 +68,10 @@ services:
     - ROS_IP=$ROS_IP
     volumes:
     - /dev:/dev
-    - $HOME/src/marrtino_apps:/home/robot/src/marrtino_apps
+    - $MARRTINO_APPS_HOME:/home/robot/src/marrtino_apps
 
   actions:
-    image: marrtino:base
+    image: iocchi/marrtino:base
     container_name: actions
     dns: 8.8.8.8
     network_mode: "host"

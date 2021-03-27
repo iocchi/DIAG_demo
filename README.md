@@ -84,11 +84,11 @@ On host OS, move to `bin` folder of this repository
 
         ./start.bash
 
-    Start with VNC
+    or start with VNC
 
         ./start.bash vnc
 
-    Open a browser at `http://localhost:3000` to see the simulator.
+    and open a browser at `http://localhost:3000` to see the simulator.
 
 
 * Test actions
