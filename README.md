@@ -81,10 +81,6 @@ On host OS, move to `bin` folder of this repository
 
 * Start all services
 
-    Move to `bin` folder
-
-        cd $HOME/src/DIAG_demo/bin
-
     Start using OS display (it does not work with Nvidia cards)
 
         ./start.bash
