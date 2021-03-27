@@ -33,6 +33,7 @@ Tested on Linux Ubuntu systems with Docker version 19.03.6 and docker-compose ve
 
 * Pull all docker images
 
+        cd $HOME/src/DIAG_demo/bin
         docker-compose pull
 
 * VNC-based xserver (if you want to run it GUI-less or have problems with your graphic card)
@@ -79,6 +80,10 @@ On host OS, move to `bin` folder of this repository
 
 
 * Start all services
+
+    Move to `bin` folder
+
+        cd $HOME/src/DIAG_demo/bin
 
     Start using OS display (it does not work with Nvidia cards)
 
