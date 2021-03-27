@@ -12,7 +12,7 @@ if [ "$1" == "vnc" ]; then
 fi
 
 # docker services
-docker-compose -f $DCF up -d $XSERVER stage navigation actions pnp
+docker-compose -f $DCF up -d $XSERVER stage navigation actions speech pnp
 
 sleep 5
 
@@ -28,6 +28,11 @@ sleep 5
 echo '@loc' | netcat -w 1 localhost 9238
 sleep 3
 echo '@movebase' | netcat -w 1 localhost 9238
+sleep 3
+
+# Speech
+
+echo '@audio' | netcat -w 1 localhost 9239
 sleep 3
 
 

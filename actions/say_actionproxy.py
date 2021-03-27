@@ -1,6 +1,6 @@
 # template action
 
-import sys
+import sys, os
 
 import rospy
 from std_msgs.msg import String
@@ -29,9 +29,21 @@ class SayActionProxy(ActionProxy):
                                         # <--- action resume (default behavior: start with same params)
 
     def action_thread(self, params):
+
+        v = params.split('_')
+        if v[0]=='going':
+            strtosay = "Hello world! I'm going to %s." %v[1]
+        elif v[0]=='color':
+            strtosay = "Hi! The led on %s, is %s." %(v[1],v[2])
+        else:
+            strtosay = v[0]
+
         s = String()
-        s.data = params
+        s.data = strtosay
         self.stagesay_pub.publish(s)
+        cmd = 'echo "TTS[en] %s" | netcat -w 1 localhost 9001' %strtosay
+        os.system(cmd)
+
         t = 2.0 + len(params)/10.0
         dt = 0.25
         while self.do_run and t>0:
@@ -39,6 +51,7 @@ class SayActionProxy(ActionProxy):
             t -= dt
         s.data = ""
         self.stagesay_pub.publish(s)
+        rospy.sleep(dt)
 
 if __name__ == "__main__":
 

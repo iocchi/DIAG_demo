@@ -31,30 +31,23 @@ Tested on Linux Ubuntu systems with Docker version 19.03.6 and docker-compose ve
         cd $HOME/src
         git clone https://github.com/iocchi/DIAG_demo.git
 
-* Stage simulator
+* Pull all docker images
 
-        docker pull iocchi/stage_environments
-
-    Note: this docker image does not work on OS systems with Nvidia graphic cards and Nvidia drivers!
-    Use VNC-based xserver if you have problems with visualizing the simulator.
-
-* Petri Net Plans
-
-        docker pull iocchi/pnp
+        docker-compose pull
 
 * VNC-based xserver (if you want to run it GUI-less or have problems with your graphic card)
 
+    Note: docker image for stage simulator does not run with Nvidia drivers.
+    If you have Nvidia drivers on your host OS, use the VNC server.
+
         docker pull devrt/xserver
 
-* MARRtino apps
+* Download MARRtino apps
 
         cd $HOME/src
         git clone --depth 1 https://bitbucket.org/iocchi/marrtino_apps.git
-        cd marrtino_apps/docker
-        docker build -t marrtino:base -f Dockerfile.base .
-        docker build -t marrtino:navigation -f Dockerfile.navigation .
 
-* MARRTINO_APPS_HOME environment variable
+* Set `MARRTINO_APPS_HOME` environment variable
 
     Set `MARRTINO_APPS_HOME` to  `marrtino_apps` folder
 
@@ -63,7 +56,7 @@ Tested on Linux Ubuntu systems with Docker version 19.03.6 and docker-compose ve
         export MARRTINO_APPS_HOME=$HOME/src/marrtino_apps
 
 
-* ROS_IP environment variable
+* Set `ROS_IP` environment variable
 
     Set `ROS_IP` to localhost `127.0.0.1`
 

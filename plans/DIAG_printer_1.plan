@@ -1,7 +1,7 @@
 goto_printer1;
 goto_door3out;
 pass_door3;
-say_red;
+say_color_printer1_red;
 pass_door3;
 goto_home
 

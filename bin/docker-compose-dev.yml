@@ -17,7 +17,7 @@ services:
     entrypoint:
     - bash
     - -ci
-    - "rosrun stage_environments start_simulation.py --server -server_port 9235"
+    - "rosrun stage_environments start_simulation.py --tmux --server -server_port 9235"
 
   base:
     image: marrtino:base
@@ -31,7 +31,7 @@ services:
     environment:
     - ROS_IP=$ROS_IP
     volumes:
-    - $HOME/src/marrtino_apps:/home/robot/src/marrtino_apps
+    - $MARRTINO_APPS_HOME:/home/robot/src/marrtino_apps
     - $HOME/log:/home/robot/log
     - $HOME/system_config.yaml:/home/robot/system_config.yaml
 
@@ -50,7 +50,7 @@ services:
     - ROS_IP=$ROS_IP
     volumes:
     - /dev:/dev
-    - $HOME/src/marrtino_apps:/home/robot/src/marrtino_apps
+    - $MARRTINO_APPS_HOME:/home/robot/src/marrtino_apps
 
   speech:
     image: marrtino:speech
@@ -66,7 +66,7 @@ services:
     - ROS_IP=$ROS_IP
     volumes:
     - /dev:/dev
-    - $HOME/src/marrtino_apps:/home/robot/src/marrtino_apps
+    - $MARRTINO_APPS_HOME:/home/robot/src/marrtino_apps
 
   actions:
     image: marrtino:base
