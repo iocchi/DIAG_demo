@@ -39,6 +39,7 @@ services:
     environment:
     - DISPLAY=:0
     - ROS_IP=$ROS_IP
+    - ROBOT_TYPE=$ROBOT_TYPE
     volumes:
     - $MARRTINO_APPS_HOME:/home/robot/src/marrtino_apps
 
