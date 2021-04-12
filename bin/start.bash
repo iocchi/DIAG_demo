@@ -11,7 +11,10 @@ if [ "$1" == "vnc" ]; then
   XSERVER=xserver
 fi
 
-# docker services
+# pull docker services
+docker-compose -f $DCF pull $XSERVER stage navigation actions speech pnp
+
+# run docker services
 docker-compose -f $DCF up -d $XSERVER stage navigation actions speech pnp
 
 sleep 5
