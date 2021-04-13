@@ -11,6 +11,8 @@ if [ "$1" == "vnc" ]; then
   XSERVER=xserver
 fi
 
+export ROBOT_TYPE="stage"
+
 # docker services
 docker-compose -f $DCF up -d $XSERVER stage navigation actions speech pnp
 

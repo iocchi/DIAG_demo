@@ -54,7 +54,7 @@ class LightColorFluentProxy(FluentProxy):
                 #print("Debug: %s_%s s:%d c:%r -> value %d" 
                 #    %(self.fluentname,fluent_params,s,c,value))
 
-                self.setValue(fluent_params,value)     # 1: true,  0: false,  -1: unknown
+                self.setValue(value,fluent_params)     # 1: true,  0: false,  -1: unknown
 
     # no input params
     def fluent_thread(self, params):

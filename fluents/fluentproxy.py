@@ -88,14 +88,14 @@ class FluentProxy:
             self.do_run = False
         return self.do_run
 
-    def setValue(self, params, value):  # 1: true,  0: false,  -1: unknown
+    def setValue(self, value, params=None):  # 1: true,  0: false,  -1: unknown
         self.lasttime = rospy.Time.now()
         if params == None or params == '':
             rospy.set_param(self.rosparam, value)
         else:
             rospy.set_param(self.rosparam+"_"+params, value)
 
-    def getValue(self, params):
+    def getValue(self, params=None):
         v = -1
         try:
             v = rospy.get_param(self.rosparam+"_"+params)

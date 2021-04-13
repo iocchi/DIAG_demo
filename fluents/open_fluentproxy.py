@@ -45,7 +45,7 @@ class OpenFluentProxy(FluentProxy):
         else:
             value = 0
 
-        self.setValue('',value)     # 1: true,  0: false,  -1: unknown
+        self.setValue(value)     # 1: true,  0: false,  -1: unknown
 
 
     # no input params

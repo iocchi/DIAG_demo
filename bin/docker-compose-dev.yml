@@ -52,6 +52,7 @@ services:
     volumes:
     - /dev:/dev
     - $MARRTINO_APPS_HOME:/home/robot/src/marrtino_apps
+    - $HOME/src/gradient_based_navigation:/home/robot/src/gradient_based_navigation
 
   speech:
     image: marrtino:speech
