@@ -65,23 +65,15 @@ Tested on Linux Ubuntu systems with Docker version 19.03.6 and docker-compose ve
 
         export ROS_IP=127.0.0.1
 
-* Set `ROBOT_TYPE` environment variable
-
-    Set `ROBOT_TYPE` to  `stage`
-
-    In `~/.bashrc`
-
-        export ROBOT_TYPE="stage"
-
-
 * Open a new terminal before running the demo
     
     Check the settings
 
         echo $MARRTINO_APPS_HOME
+        ...
         echo $ROS_IP
-        echo $ROBOT_TYPE
-
+        ...
+s
 # Run
 
 On host OS, move to `bin` folder of this repository
