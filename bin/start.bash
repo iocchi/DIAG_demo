@@ -34,7 +34,7 @@ sleep 5
 # Navigation
 echo '@loc' | netcat -w 1 localhost 9238
 sleep 3
-echo '@movebase' | netcat -w 1 localhost 9238
+echo '@movebasegbn' | netcat -w 1 localhost 9238
 sleep 3
 
 # Speech

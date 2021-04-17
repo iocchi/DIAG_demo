@@ -81,6 +81,8 @@ On host OS, move to `bin` folder of this repository
 
 # Development
 
+For development or to run the last version of code, follow these additional instructions. 
+
 * Download MARRtino apps
 
         git clone --depth 1 https://bitbucket.org/iocchi/marrtino_apps.git
