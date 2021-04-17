@@ -18,15 +18,6 @@ services:
     - -ci
     - "rosrun stage_environments start_simulation.py --tmux --server -server_port 9235"
 
-  base:
-    image: iocchi/marrtino:base
-    container_name: base
-    dns: 8.8.8.8
-    network_mode: "host"
-    tty: true
-    environment:
-    - ROS_IP=$ROS_IP
-
   navigation:
     image: iocchi/marrtino:navigation
     container_name: navigation
