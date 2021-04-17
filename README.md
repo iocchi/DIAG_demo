@@ -17,24 +17,10 @@ Tested on Linux Ubuntu systems with Docker version 19.03.6 and docker-compose ve
 
 # Setup
 
-* Setup folder for source files
+* Clone this repository
 
-        mkdir -p $HOME/src
-
-    Note: if you want to change this base folder, you should change something in the docker-compose files.
-
-
-* This repository
-
-    Clone this repository in `$HOME/src`
-
-        cd $HOME/src
         git clone https://github.com/iocchi/DIAG_demo.git
 
-* Pull all docker images
-
-        cd $HOME/src/DIAG_demo/bin
-        docker-compose pull
 
 * VNC-based xserver (if you want to run it GUI-less or have problems with your graphic card)
 
@@ -43,42 +29,12 @@ Tested on Linux Ubuntu systems with Docker version 19.03.6 and docker-compose ve
 
         docker pull devrt/xserver
 
-* Download MARRtino apps
 
-        cd $HOME/src
-        git clone --depth 1 https://bitbucket.org/iocchi/marrtino_apps.git
-
-* Set `MARRTINO_APPS_HOME` environment variable
-
-    Set `MARRTINO_APPS_HOME` to  `marrtino_apps` folder
-
-    In `~/.bashrc`
-
-        export MARRTINO_APPS_HOME=$HOME/src/marrtino_apps
-
-
-* Set `ROS_IP` environment variable
-
-    Set `ROS_IP` to localhost `127.0.0.1`
-
-    In `~/.bashrc`
-
-        export ROS_IP=127.0.0.1
-
-* Open a new terminal before running the demo
-    
-    Check the settings
-
-        echo $MARRTINO_APPS_HOME
-        ...
-        echo $ROS_IP
-        ...
-s
 # Run
 
 On host OS, move to `bin` folder of this repository
 
-    cd $HOME/src/DIAG_demo/bin
+        cd DIAG_demo/bin
 
 
 * Start all services
@@ -121,4 +77,30 @@ On host OS, move to `bin` folder of this repository
 * Stop all services
 
         ./stop.bash
+
+
+# Development
+
+* Download MARRtino apps
+
+        git clone --depth 1 https://bitbucket.org/iocchi/marrtino_apps.git
+
+* Set `MARRTINO_APPS_HOME` environment variable
+
+    Set `MARRTINO_APPS_HOME` to  `marrtino_apps` folder
+
+    In `~/.bashrc`
+
+        export MARRTINO_APPS_HOME=<PATH_TO>/marrtino_apps
+
+
+* Open a new terminal before running the demo
+    
+    Check the settings
+
+        echo $MARRTINO_APPS_HOME
+
+* Start all services in development mode
+
+        ./start.bash dev
 

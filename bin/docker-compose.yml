@@ -26,8 +26,6 @@ services:
     tty: true
     environment:
     - ROS_IP=$ROS_IP
-    volumes:
-    - $MARRTINO_APPS_HOME:/home/robot/src/marrtino_apps
 
   navigation:
     image: iocchi/marrtino:navigation
@@ -40,8 +38,6 @@ services:
     - DISPLAY=:0
     - ROS_IP=$ROS_IP
     - ROBOT_TYPE=$ROBOT_TYPE
-    volumes:
-    - $MARRTINO_APPS_HOME:/home/robot/src/marrtino_apps
 
   speech:
     image: iocchi/marrtino:speech
@@ -54,7 +50,6 @@ services:
     - ROS_IP=$ROS_IP
     volumes:
     - /dev:/dev
-    - $MARRTINO_APPS_HOME:/home/robot/src/marrtino_apps
 
   actions:
     image: iocchi/marrtino:base
@@ -63,11 +58,11 @@ services:
     network_mode: "host"
     tty: true
     volumes:
-    - $HOME/src/DIAG_demo:/home/robot/src/DIAG_demo
+    - $DEMO_DIR:/home/robot/src/DIAG_demo
     entrypoint:
     - bash
     - -ci
-    - "sleep 5 &&cd ~/src/DIAG_demo/bin && ./init.bash"
+    - "sleep 5 && cd ~/src/DIAG_demo/bin && ./init.bash"
 
   pnp:
     image: iocchi/pnp
@@ -76,7 +71,7 @@ services:
     network_mode: "host"
     tty: true
     volumes:
-    - $HOME/src/DIAG_demo:/home/robot/src/DIAG_demo
+    - $DEMO_DIR:/home/robot/src/DIAG_demo
     entrypoint:
     - bash
     - -ci
