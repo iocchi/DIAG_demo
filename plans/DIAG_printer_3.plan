@@ -3,7 +3,7 @@ sense_lightcolor;
 < lightcolor_printer1light_red ? 
     goto_door2out;
     sense_open;
-    < open ? pass_door2; say_red; pass_door2 :
+    < open ? pass_door2; say_color_printer1_red; pass_door2 :
       (not open) ? goto_door3out; sense_open; 
             < open ? pass_door3; say_color_printer1_red; pass_door3 :
               (not open) ? 
