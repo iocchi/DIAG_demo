@@ -70,6 +70,26 @@ services:
     - /dev:/dev
     - $MARRTINO_APPS_HOME:/home/robot/src/marrtino_apps
 
+  vision:
+    image: marrtino:vision
+    build:
+      context: $MARRTINO_APPS_HOME/docker
+      dockerfile: Dockerfile.vision
+    container_name: vision
+    dns: 8.8.8.8
+    network_mode: "host"
+    tty: true
+    privileged: true
+    user: "robot:robot"
+    environment:
+    - DISPLAY=:0
+    - ROS_IP=$ROS_IP
+    - CAMRES=$CAMRES
+    volumes:
+    - /dev:/dev
+    - $MARRTINO_APPS_HOME:/home/robot/src/marrtino_apps
+    - $HOME/playground/images:/home/robot/images
+
   actions:
     image: marrtino:base
     container_name: actions

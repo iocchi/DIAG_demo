@@ -15,11 +15,17 @@ if [ "$1" == "vnc" ]; then
   XSERVER=xserver
 fi
 
-# pull docker services
-docker-compose -f $DCF pull $XSERVER stage navigation actions speech pnp
 
-# run docker services
-docker-compose -f $DCF up -d $XSERVER stage navigation actions speech pnp
+if [ "$1" == "dev" ]; then
+  # run docker services
+  docker-compose -f $DCF up -d $XSERVER stage navigation actions speech vision pnp
+else
+  # pull docker services
+  docker-compose -f $DCF pull $XSERVER stage navigation actions speech pnp
+
+  # run docker services
+  docker-compose -f $DCF up -d $XSERVER stage navigation actions speech pnp
+fi
 
 sleep 5
 
@@ -28,7 +34,7 @@ docker ps
 sleep 1
 
 # Stage with map
-echo 'DISB1;orazio' | netcat -w 1 localhost 9235
+echo 'DISB1;marrtino' | netcat -w 1 localhost 9235
 sleep 5
 
 # Navigation
@@ -40,6 +46,11 @@ sleep 3
 # Speech
 
 echo '@audio' | netcat -w 1 localhost 9239
+sleep 3
+
+# Vision  (use marrtino as robot in stage)
+
+echo '@takephoto' | netcat -w 1 localhost 9237
 sleep 3
 
 

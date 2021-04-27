@@ -16,6 +16,10 @@ tmux send-keys -t $SESSION:2 "cd ../actions && python pass_actionproxy.py" C-m
 tmux new-window -t $SESSION:3 -n 'sense'
 tmux send-keys -t $SESSION:3 "cd ../actions && python sense_actionproxy.py" C-m
 
+tmux new-window -t $SESSION:4 -n 'getimage'
+tmux send-keys -t $SESSION:4 "cd ../actions && python getimage_actionproxy.py" C-m
+
+
 # Continuous sensing not needed when sensing actions are used
 #tmux new-window -t $SESSION:4 -n 'lightcolor'
 #tmux send-keys -t $SESSION:4 "cd ../fluents && python lightcolor_fluentproxy.py" C-m
