@@ -18,13 +18,13 @@ fi
 
 if [ "$1" == "dev" ]; then
   # run docker services
-  docker-compose -f $DCF up -d $XSERVER stage navigation actions speech vision pnp
+  docker-compose -f $DCF up -d $XSERVER stage navigation speech vision actions pnp
 else
   # pull docker services
-  docker-compose -f $DCF pull $XSERVER stage navigation actions speech pnp
+  docker-compose -f $DCF pull $XSERVER stage navigation speech vision actions pnp
 
   # run docker services
-  docker-compose -f $DCF up -d $XSERVER stage navigation actions speech pnp
+  docker-compose -f $DCF up -d $XSERVER stage navigation speech vision actions pnp
 fi
 
 sleep 5

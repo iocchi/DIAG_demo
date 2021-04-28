@@ -46,7 +46,6 @@ services:
     tty: true
     privileged: true
     environment:
-    - DISPLAY=:0
     - ROS_IP=$ROS_IP
     - ROBOT_TYPE=$ROBOT_TYPE
     volumes:
@@ -88,7 +87,6 @@ services:
     volumes:
     - /dev:/dev
     - $MARRTINO_APPS_HOME:/home/robot/src/marrtino_apps
-    - $HOME/playground/images:/home/robot/images
 
   actions:
     image: marrtino:base
@@ -109,7 +107,12 @@ services:
     dns: 8.8.8.8
     network_mode: "host"
     tty: true
+    environment:
+    - DISPLAY=:0
+    - ROS_IP=$ROS_IP
     volumes:
+    - /tmp/.X11-unix:/tmp/.X11-unix
+    - $HOME/.Xauthority:/home/robot/.Xauthority
     - $HOME/src/DIAG_demo:/home/robot/src/DIAG_demo
     - $HOME/src/PetriNetPlans:/home/robot/src/PetriNetPlans
     entrypoint:

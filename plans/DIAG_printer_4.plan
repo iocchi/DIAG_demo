@@ -1,0 +1,31 @@
+goto_printer1;
+sense_lightcolor;
+< lightcolor_printer1light_red ? 
+    goto_door2out;
+    sense_open;
+    < open ? 
+        pass_door2;
+        sense_personhere; 
+        < personhere ? 
+            say_color_printer1_red : 
+          (not personhere) ?        
+        >; 
+        pass_door2 :
+      (not open) ? 
+    >;
+    goto_door3out; 
+    sense_open; 
+    < open ? 
+        pass_door3; 
+        sense_personhere; 
+        < personhere ? 
+            say_color_printer1_red : 
+          (not personhere) ?        
+        >; 
+        pass_door3 :
+      (not open) ? 
+    > :
+  (not lightcolor_printer1light_red) ? 
+>;
+goto_home;
+

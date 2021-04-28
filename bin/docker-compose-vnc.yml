@@ -69,6 +69,20 @@ services:
     - -ci
     - "sleep 5 && cd ~/src/DIAG_demo/bin && ./init.bash"
 
+  vision:
+    image: iocchi/marrtino:vision
+    container_name: vision
+    dns: 8.8.8.8
+    network_mode: "host"
+    tty: true
+    privileged: true
+    environment:
+    - DISPLAY=:0
+    - ROS_IP=$ROS_IP
+    - CAMRES=$CAMRES
+    volumes:
+    - /dev:/dev
+
   pnp:
     image: iocchi/pnp
     container_name: pnp

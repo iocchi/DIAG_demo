@@ -42,6 +42,20 @@ services:
     volumes:
     - /dev:/dev
 
+  vision:
+    image: iocchi/marrtino:vision
+    container_name: vision
+    dns: 8.8.8.8
+    network_mode: "host"
+    tty: true
+    privileged: true
+    environment:
+    - DISPLAY=:0
+    - ROS_IP=$ROS_IP
+    - CAMRES=$CAMRES
+    volumes:
+    - /dev:/dev
+
   actions:
     image: iocchi/marrtino:base
     container_name: actions
