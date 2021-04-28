@@ -56,6 +56,18 @@ services:
     volumes:
     - /dev:/dev
 
+  stagepersondetection:
+    image: iocchi/stagepersondetection
+    container_name: stagepersondetection
+    dns: 8.8.8.8
+    network_mode: "host"
+    tty: true
+    privileged: true
+    entrypoint:
+    - bash
+    - -ci
+    - "python3 stageperson_net.py -modelname spd --server -server_port 9250"
+
   actions:
     image: iocchi/marrtino:base
     container_name: actions

@@ -19,22 +19,6 @@ services:
     - -ci
     - "rosrun stage_environments start_simulation.py --tmux --server -server_port 9235"
 
-  base:
-    image: marrtino:base
-    build:
-      context: $MARRTINO_APPS_HOME/docker
-      dockerfile: Dockerfile.base
-    container_name: base
-    dns: 8.8.8.8
-    network_mode: "host"
-    tty: true
-    environment:
-    - ROS_IP=$ROS_IP
-    volumes:
-    - $MARRTINO_APPS_HOME:/home/robot/src/marrtino_apps
-    - $HOME/log:/home/robot/log
-    - $HOME/system_config.yaml:/home/robot/system_config.yaml
-
   navigation:
     image: marrtino:navigation
     build:
@@ -79,7 +63,6 @@ services:
     network_mode: "host"
     tty: true
     privileged: true
-    user: "robot:robot"
     environment:
     - DISPLAY=:0
     - ROS_IP=$ROS_IP
@@ -87,6 +70,21 @@ services:
     volumes:
     - /dev:/dev
     - $MARRTINO_APPS_HOME:/home/robot/src/marrtino_apps
+
+  stagepersondetection:
+    image: iocchi/stagepersondetection
+    container_name: stagepersondetection
+    dns: 8.8.8.8
+    network_mode: "host"
+    tty: true
+    privileged: true
+    volumes:
+    - $HOME/src/stagepersondetection:/home/robot/src/stagepersondetection
+    entrypoint:
+    - bash
+    - -ci
+    - "python3 stageperson_net.py -modelname spd --server -server_port 9250"
+
 
   actions:
     image: marrtino:base
