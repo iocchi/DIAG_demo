@@ -17,7 +17,7 @@ services:
     entrypoint:
     - bash
     - -ci
-    - "rosrun stage_environments start_simulation.py --tmux --server -server_port 9235"
+    - "sleep 5 && rosrun stage_environments start_simulation.py --tmux --server -server_port 9235"
 
   navigation:
     image: marrtino:navigation
@@ -97,7 +97,7 @@ services:
     entrypoint:
     - bash
     - -ci
-    - "sleep 5 && cd ~/src/DIAG_demo/bin && ./init.bash"
+    - "sleep 10 && cd ~/src/DIAG_demo/bin && ./init.bash"
 
   pnp:
     image: iocchi/pnp

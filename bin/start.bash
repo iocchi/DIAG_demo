@@ -30,11 +30,11 @@ else
     stagepersondetection actions pnp
 fi
 
-sleep 5
+sleep 10
 
 docker ps
 
-sleep 1
+sleep 3
 
 # Stage with map
 echo 'DISB1;marrtino' | netcat -w 1 localhost 9235
