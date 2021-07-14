@@ -98,7 +98,10 @@ class FluentProxy:
     def getValue(self, params=None):
         v = -1
         try:
-            v = rospy.get_param(self.rosparam+"_"+params)
+            if params == None or params == '':
+                v = rospy.set_param(self.rosparam)
+            else:
+                v = rospy.set_param(self.rosparam+"_"+params)
         except:
             pass
         return v

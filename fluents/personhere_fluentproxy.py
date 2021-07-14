@@ -18,7 +18,7 @@ PARAM_takephoto_image_folder = '%s/imagefolder' %ROS_NODE_NAME
 SPD_SERVER = 'localhost'
 SPD_PORT = 9250
 
-class PersonHereFluentProxy(FluentProxy):   # <--- fluent class
+class PersonHereFluentProxy(FluentProxy, rosnode=False):   # <--- fluent class
 
     def __init__(self, fluentnane, rosnode=False):
         FluentProxy.__init__(self, fluentnane, rosnode)
@@ -67,13 +67,16 @@ class PersonHereFluentProxy(FluentProxy):   # <--- fluent class
         s = String()
         s.data = 'send %s %s' %(self.server,self.port)
 
+        # notify takephoto to send an image to (self.server,self.port)
         self.takephoto_pub.publish(s)
 
+        # wait for server to receive and analyze the image...
         rospy.sleep(0.2)
 
         if (self.server != 'localhost') and (self.server != '127.0.0.1'):
             rospy.sleep(1)
 
+        # receive result from (self.server,self.port)
         try:
             sock = socket.socket()
             sock.connect((self.server,self.port))
@@ -116,7 +119,7 @@ if __name__ == "__main__":
     if (len(sys.argv)>1):
         params = sys.argv[1]
 
-    t = PersonHereFluentProxy(FLUENT_NAME)  # <--- fluent class
+    t = PersonHereFluentProxy(FLUENT_NAME,rosnode=True)  # <--- fluent class
     t.execute(params)  # blocking, CTRL-C to interrupt
 
 
