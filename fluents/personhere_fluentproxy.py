@@ -18,7 +18,7 @@ PARAM_takephoto_image_folder = '%s/imagefolder' %ROS_NODE_NAME
 SPD_SERVER = 'localhost'
 SPD_PORT = 9250
 
-class PersonHereFluentProxy(FluentProxy, rosnode=False):   # <--- fluent class
+class PersonHereFluentProxy(FluentProxy):   # <--- fluent class
 
     def __init__(self, fluentnane, rosnode=False):
         FluentProxy.__init__(self, fluentnane, rosnode)
