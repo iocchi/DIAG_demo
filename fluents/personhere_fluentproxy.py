@@ -88,17 +88,18 @@ class PersonHereFluentProxy(FluentProxy):   # <--- fluent class
         except:
             data = None
 
-        if data is None:
-            value = -1
-        else:        
-            v = data.split(' ')
-            if (float(v[1])<0.6):
-                value = -1
-            elif v[0]=='none':
-                value = 0
-            else:
-                value = 1
-
+        value = -1
+        if data is not None:
+            try:
+                v = data.split(' ')
+                if (float(v[1])<0.6):
+                    value = -1
+                elif v[0]=='none':
+                    value = 0
+                else:
+                    value = 1
+            except:
+                pass
 
         self.setValue(value)     # 1: true,  0: false,  -1: unknown
         
