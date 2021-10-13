@@ -99,9 +99,9 @@ class FluentProxy:
         v = -1
         try:
             if params == None or params == '':
-                v = rospy.set_param(self.rosparam)
+                v = rospy.get_param(self.rosparam)
             else:
-                v = rospy.set_param(self.rosparam+"_"+params)
+                v = rospy.get_param(self.rosparam+"_"+params)
         except:
             pass
         return v
