@@ -128,7 +128,8 @@ dmypy.json
 # Pyre type checker
 .pyre/
 
-# PNP
+# Planning
 plans/*.pnml
+pddl/*.plan
 
 
