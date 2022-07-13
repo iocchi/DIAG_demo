@@ -131,5 +131,5 @@ dmypy.json
 # Planning
 plans/*.pnml
 pddl/*.plan
-
+bin/Contingent*
 

@@ -3,6 +3,6 @@
 Plan generation of conditional plans with Contingent-FF
 developed by Joerg Hoffmann, in collaboration with Ronen Brafman.
 
-https://fai.cs.uni-saarland.de/hoffmann/cff.html
+Download [Contingent-ff](https://fai.cs.uni-saarland.de/hoffmann/cff.html) and copy it in the ```bin``` folder of this repository
 
 

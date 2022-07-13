@@ -1,8 +1,10 @@
 # Install
 
-Tested on Linux Ubuntu systems with Docker version 19.03.6 and docker-compose version 1.28.2.
+Tested on Linux Ubuntu systems with Docker CLI version 19.03.6 and docker-compose version 1.28.2.
 
 * [docker](http://www.docker.com)
+
+    Install Docker CLI (not Docker Desktop!!!).
 
     See also 
     [Post-installation steps for Linux](https://docs.docker.com/install/linux/linux-postinstall/).
@@ -13,6 +15,8 @@ Tested on Linux Ubuntu systems with Docker version 19.03.6 and docker-compose ve
     You need to install the latest version 1.28, check it with
 
         docker-compose --version
+
+
 
 
 # Setup
@@ -28,6 +32,11 @@ Tested on Linux Ubuntu systems with Docker version 19.03.6 and docker-compose ve
     If you have Nvidia drivers on your host OS, use the VNC server.
 
         docker pull devrt/xserver
+
+
+* Download Contingent-ff
+
+Download [Contingent-ff](https://fai.cs.uni-saarland.de/hoffmann/cff.html) and copy it in the ```bin``` folder of this repository
 
 
 # Run
