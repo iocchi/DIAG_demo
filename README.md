@@ -36,7 +36,7 @@ Tested on Linux Ubuntu systems with Docker CLI version 19.03.6 and docker-compos
 
 * Download Contingent-ff
 
-Download [Contingent-ff](https://fai.cs.uni-saarland.de/hoffmann/cff.html) and copy it in the ```bin``` folder of this repository
+Download [Contingent-ff](https://fai.cs.uni-saarland.de/hoffmann/cff.html) and copy it in the `bin` folder of this repository
 
 
 # Run
@@ -48,7 +48,7 @@ On host OS, move to `bin` folder of this repository
 
 * Start all services
 
-    Start using OS display (it does not work with Nvidia cards)
+    Start using OS display (it may not work with Nvidia cards)
 
         ./start.bash
 
@@ -66,11 +66,11 @@ On host OS, move to `bin` folder of this repository
 
 * Test plan
 
-        ./test_plan.bash [<plan_name>|stop]
+        ./run_plan.bash [<plan_name>|stop]
 
     Example:
 
-        ./test_plan.bash DIAG_printer_2
+        ./run_plan.bash DIAG_printer_2
 
     The robot goes to the printer and checks the light color, if it is red, the robot tells it to the blue person, then it goes back home.
 
@@ -90,13 +90,19 @@ On host OS, move to `bin` folder of this repository
 
 # Development
 
-For development or to run the last version of code, follow these additional instructions. 
+For development or to run the last versions of code, follow these additional instructions. 
 
-* Download MARRtino apps
+* Download MARRtino apps and other repos in `$HOME/src`
 
+        cd $HOME/src
         git clone --depth 1 https://bitbucket.org/iocchi/marrtino_apps.git
+        git clone --depth 1 https://bitbucket.org/iocchi-/stage_environments.git
+        git clone --depth 1 https://github.com/Imperoli/gradient_based_navigation.git
+        git clone --depth 1 https://github.com/iocchi/stagepersondetection.git
+        git clone --depth 1 https://github.com/iocchi/PetriNetPlans
 
-* Set `MARRTINO_APPS_HOME` environment variable
+
+* Set environment variable `MARRTINO_APPS_HOME` 
 
     Set `MARRTINO_APPS_HOME` to  `marrtino_apps` folder
 
@@ -104,12 +110,18 @@ For development or to run the last version of code, follow these additional inst
 
         export MARRTINO_APPS_HOME=<PATH_TO>/marrtino_apps
 
+* Set environment variable `DEMO_DIR`
 
-* Open a new terminal before running the demo
+    Set demo folder in environment variable `DEMO_DIR`
+
+        export DEMO_DIR=<path to demo>
+
+* If using `.bashrc`, open a new terminal before running the demo
     
     Check the settings
 
         echo $MARRTINO_APPS_HOME
+        echo $DEMO_DIR
 
 * Start all services in development mode
 

@@ -93,7 +93,7 @@ services:
     network_mode: "host"
     tty: true
     volumes:
-    - $HOME/src/DIAG_demo:/home/robot/src/DIAG_demo
+    - $DEMO_DIR:/home/robot/src/DIAG_demo
     entrypoint:
     - bash
     - -ci
@@ -111,7 +111,7 @@ services:
     volumes:
     - /tmp/.X11-unix:/tmp/.X11-unix
     - $HOME/.Xauthority:/home/robot/.Xauthority
-    - $HOME/src/DIAG_demo:/home/robot/src/DIAG_demo
+    - $DEMO_DIR:/home/robot/src/DIAG_demo
     - $HOME/src/PetriNetPlans:/home/robot/src/PetriNetPlans
     entrypoint:
     - bash

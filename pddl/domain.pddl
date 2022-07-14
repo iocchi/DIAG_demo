@@ -40,11 +40,5 @@
     :observe (open ?x ?y)
   )
 
-;  (:action cannot_do
-;    :parameters (?x - location ?y - location)
-;    :precondition (and (at ?x) (face ?y) (not (open ?x ?y)))
-;    :effect (at ?y)
-;  )
-
 )
 

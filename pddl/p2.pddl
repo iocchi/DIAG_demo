@@ -5,6 +5,7 @@
     (at corr)
     (face corr)
     (unknown (open corr room))
+    (prefer_ask)
   )
   (:goal
     (at room)
