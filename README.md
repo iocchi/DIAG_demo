@@ -31,9 +31,6 @@ Tested on Linux Ubuntu systems with Docker CLI version 19.03.6 and docker-compos
 
 * VNC-based xserver (if you want to run it GUI-less or have problems with your graphic card)
 
-    Note: docker image for stage simulator does not run with Nvidia drivers.
-    If you have Nvidia drivers on your host OS, use the VNC server.
-
         docker pull devrt/xserver
 
 
@@ -55,9 +52,9 @@ On host OS, move to `bin` folder of this repository
 
         ./start.bash
 
-    or start with Nvidia drivers
+    or start with
 
-        ./start.bash vnidia
+        ./start.bash nvidia
 
     or start with VNC
 
@@ -65,6 +62,8 @@ On host OS, move to `bin` folder of this repository
 
     and open a browser at `http://localhost:3000` to see the simulator.
 
+
+    Note: the first time you run this command it will download docker images (it would take some time and require good network connection).
 
 * Start a scenario
 

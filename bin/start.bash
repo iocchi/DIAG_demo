@@ -8,7 +8,7 @@ export ROBOT_TYPE="stage"
 export DEMO_DIR=`pwd | gawk '{ print gensub(/\/bin/, "", 1) }'`
 
 if [ "$1" == "nvidia" ]; then
-  DCF=docker-compose-vnidia.yml
+  DCF=docker-compose-nvidia.yml
 fi
 if [ "$1" == "dev" ]; then
   DCF=docker-compose-dev.yml
