@@ -7,6 +7,9 @@ export ROS_IP=127.0.0.1
 export ROBOT_TYPE="stage"
 export DEMO_DIR=`pwd | gawk '{ print gensub(/\/bin/, "", 1) }'`
 
+if [ "$1" == "nvidia" ]; then
+  DCF=docker-compose-vnidia.yml
+fi
 if [ "$1" == "dev" ]; then
   DCF=docker-compose-dev.yml
 fi
@@ -40,24 +43,6 @@ sleep 3
 echo 'DISB1;marrtino' | netcat -w 1 localhost 9235
 sleep 5
 
-# Navigation
-echo '@loc' | netcat -w 1 localhost 9238
-sleep 3
-echo '@movebasegbn' | netcat -w 1 localhost 9238
-sleep 3
 
-# Speech
-
-echo '@audio' | netcat -w 1 localhost 9239
-sleep 3
-
-# Vision  (use marrtino as robot in stage)
-
-echo '@takephoto' | netcat -w 1 localhost 9237
-sleep 3
-
-
-# check
-docker exec -it stage bash -ci "rosnode list"
 
 

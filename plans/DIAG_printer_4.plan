@@ -8,7 +8,7 @@ sense_lightcolor;
         sense_personhere; 
         < personhere ? 
             say_color_printer1_red : 
-          (not personhere) ?        
+          (not personhere) ?
         >; 
         pass_door2 :
       (not open) ? 
@@ -17,7 +17,7 @@ sense_lightcolor;
     sense_open; 
     < open ? 
         pass_door3; 
-        sense_personhere; 
+        sense_personhere;
         < personhere ? 
             say_color_printer1_red : 
           (not personhere) ?        

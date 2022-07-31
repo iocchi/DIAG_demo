@@ -8,7 +8,7 @@ services:
     network_mode: "host"
     tty: true
     environment:
-    - DISPLAY=:0
+    - DISPLAY=$DISPLAY
     - ROS_IP=$ROS_IP
     volumes:
     - /tmp/.X11-unix:/tmp/.X11-unix
@@ -64,7 +64,7 @@ services:
     tty: true
     privileged: true
     environment:
-    - DISPLAY=:0
+    - DISPLAY=$DISPLAY
     - ROS_IP=$ROS_IP
     - CAMRES=$CAMRES
     volumes:
@@ -97,7 +97,7 @@ services:
     entrypoint:
     - bash
     - -ci
-    - "sleep 10 && cd ~/src/DIAG_demo/bin && ./init.bash"
+    - "sleep 10 && cd ~/src/DIAG_demo/bin && ./wait.bash"
 
   pnp:
     image: iocchi/pnp
@@ -106,7 +106,7 @@ services:
     network_mode: "host"
     tty: true
     environment:
-    - DISPLAY=:0
+    - DISPLAY=$DISPLAY
     - ROS_IP=$ROS_IP
     volumes:
     - /tmp/.X11-unix:/tmp/.X11-unix

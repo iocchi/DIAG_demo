@@ -16,6 +16,9 @@ Tested on Linux Ubuntu systems with Docker CLI version 19.03.6 and docker-compos
 
         docker-compose --version
 
+* For Nvidia drivers, install nvidia-docker2
+
+        https://docs.nvidia.com/datacenter/cloud-native/container-toolkit/install-guide.html
 
 
 
@@ -46,11 +49,15 @@ On host OS, move to `bin` folder of this repository
         cd DIAG_demo/bin
 
 
-* Start all services
+* Start docker containers
 
     Start using OS display (it may not work with Nvidia cards)
 
         ./start.bash
+
+    or start with Nvidia drivers
+
+        ./start.bash vnidia
 
     or start with VNC
 
@@ -59,16 +66,19 @@ On host OS, move to `bin` folder of this repository
     and open a browser at `http://localhost:3000` to see the simulator.
 
 
-* Test actions
+* Start a scenario
 
-        ./test_actions.bash
+    Start a scenario script in `DIAG_demo/bin` folder
 
+        ./scenario1.bash
 
-* Test plan
+    This script will launch ROS nodes and action proxies
+
+* Run a plan
 
         ./run_plan.bash [<plan_name>|stop]
 
-    Example:
+    Example for scenario1: 
 
         ./run_plan.bash DIAG_printer_2
 
@@ -77,13 +87,42 @@ On host OS, move to `bin` folder of this repository
     See other plans in the `plans` folder.
 
 
+# Scenario configuration
+
+Copy and edit `scenario<n>.bash` and `actions_scenario<n>.bash` 
+to customize a scenario configuration. Do not modify the files
+in the folder as they are under `git` control and will prevent further updates. 
+
+
+* Set robot pose
+
+        ./setrobotpose.bash <X> <Y> <th_deg>
+
+    Example
+
+        ./setrobotpose.bash 2.0 2.0 0
+
+    Note: if localizer is already started, make sure to re-localize the robot after this command (for example, by using rviz)
+
+
+* Set person pose
+
+        ./setpersonpose.bash <name> <X> <Y> <th_deg>
+
+    Example
+
+        ./setpersonpose.bash alice 5.4 2.2 1.57
+
+
 * Change light status
 
         ./setlight.bash [red|green]
 
     Run the plan to see different behaviors according to the light color.
 
-* Stop all services
+
+
+# Stop demo and quit all services
 
         ./stop.bash
 

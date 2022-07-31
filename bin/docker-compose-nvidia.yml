@@ -2,47 +2,42 @@ version: "3.9"
 
 services:
 
-  xserver:
-    image: devrt/xserver
-    container_name: xserver
-    ipc: host
-    security_opt:
-      - seccomp:unconfined
-    environment:
-      - DISPLAY=:9
-    ports:
-      - "3000:80"
-    healthcheck:
-      test: ["CMD-SHELL", "test -e /tmp/.X11-unix/X0"]
-      interval: "1s"
-      retries: 20
-
   stage:
     image: iocchi/stage_environments
     container_name: stage
+    runtime: nvidia
     network_mode: "host"
     tty: true
     environment:
-    - DISPLAY=:9
+    - DISPLAY=$DISPLAY
     - ROS_IP=$ROS_IP
-    volumes_from:
-    - xserver
+    - NVIDIA_VISIBLE_DEVICES=all
+    - NVIDIA_DRIVER_CAPABILITIES=all
+    volumes:
+    - /tmp/.X11-unix:/tmp/.X11-unix
+    - $HOME/.Xauthority:/home/robot/.Xauthority
     entrypoint:
     - bash
     - -ci
-    - "rosrun stage_environments start_simulation.py --tmux --server -server_port 9235"
+    - "sleep 5 && rosrun stage_environments start_simulation.py --tmux --server -server_port 9235"
 
   navigation:
     image: iocchi/marrtino:navigation
     container_name: navigation
+    runtime: nvidia
     dns: 8.8.8.8
     network_mode: "host"
     tty: true
     privileged: true
     environment:
-    - DISPLAY=:9
+    - DISPLAY=$DISPLAY
+    - NVIDIA_VISIBLE_DEVICES=all
+    - NVIDIA_DRIVER_CAPABILITIES=all
     - ROS_IP=$ROS_IP
     - ROBOT_TYPE=$ROBOT_TYPE
+    volumes:
+    - /tmp/.X11-unix:/tmp/.X11-unix
+    - $HOME/.Xauthority:/home/robot/.Xauthority
 
   speech:
     image: iocchi/marrtino:speech
@@ -59,12 +54,15 @@ services:
   vision:
     image: iocchi/marrtino:vision
     container_name: vision
+    runtime: nvidia
     dns: 8.8.8.8
     network_mode: "host"
     tty: true
     privileged: true
     environment:
-    - DISPLAY=:9
+    - DISPLAY=$DISPLAY
+    - NVIDIA_VISIBLE_DEVICES=all
+    - NVIDIA_DRIVER_CAPABILITIES=all
     - ROS_IP=$ROS_IP
     - CAMRES=$CAMRES
     volumes:
@@ -73,10 +71,14 @@ services:
   stagepersondetection:
     image: iocchi/stagepersondetection
     container_name: stagepersondetection
+    runtime: nvidia
     dns: 8.8.8.8
     network_mode: "host"
     tty: true
     privileged: true
+    environment:
+    - NVIDIA_VISIBLE_DEVICES=all
+    - NVIDIA_DRIVER_CAPABILITIES=all
     entrypoint:
     - bash
     - -ci
@@ -93,21 +95,27 @@ services:
     entrypoint:
     - bash
     - -ci
-    - "sleep 5 && cd ~/src/DIAG_demo/bin && ./wait.bash"
+    - "sleep 10 && cd ~/src/DIAG_demo/bin && ./wait.bash"
 
   pnp:
     image: iocchi/pnp
     container_name: pnp
+    runtime: nvidia
     dns: 8.8.8.8
     network_mode: "host"
     tty: true
     environment:
-    - DISPLAY=:9
+    - DISPLAY=$DISPLAY
     - ROS_IP=$ROS_IP
+    - NVIDIA_VISIBLE_DEVICES=all
+    - NVIDIA_DRIVER_CAPABILITIES=all
     volumes:
+    - /tmp/.X11-unix:/tmp/.X11-unix
+    - $HOME/.Xauthority:/home/robot/.Xauthority
     - $DEMO_DIR:/home/robot/src/DIAG_demo
     entrypoint:
     - bash
     - -ci
     - "sleep 10 && roscd pnp_ros && ./init.bash"
+
 
