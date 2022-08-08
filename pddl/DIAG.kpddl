@@ -1,0 +1,139 @@
+(define (domain DIAG)
+
+  (:types location door room printer status)
+
+  (:constants 
+            home  
+            locprinter1 - location
+            ; locprinter2 - location
+            room1
+            room2           
+            room3 - room
+            door1
+            door2
+            door3 - door
+            printer1 - printer 
+            printer2 - printer         
+            red green - status) 
+  
+
+  (:predicates 
+    (at ?l - location)
+    (at ?r - room)
+    (at-out ?d - door)
+    (at-in ?d - door)
+    (conn ?l - location ?l - location)
+    (dconn ?l - location ?d - door)
+    (droom ?d - door ?r - room)
+    (open ?d - door)
+    (personin ?r - room)
+    (printerat ?p - printer ?l - location)
+    (printer-stat ?p - printer ?s - status)
+    (told-printer-stat ?p - printer)
+    (prefer-ask)
+    (same-location)
+  )
+
+
+  (:action goto
+    :parameters (?x - location ?y - location)
+    :precondition (and (at ?x) (conn ?x ?y))
+    :effect (and (not (at ?x)) (at ?y))
+  )
+
+  (:action goto-ld
+    :parameters (?l - location ?d - door)
+    :precondition (and (at ?l) (dconn ?l ?d))
+    :effect (and (not (at ?l)) (at-out ?d))
+  )
+
+  (:action goto-dl
+    :parameters (?d - door ?l - location)
+    :precondition (and (at-out ?d) (dconn ?l ?d))
+    :effect (and (not (at-out ?d)) (at ?l))
+  )
+
+  (:action enter
+    :parameters (?d - door ?r - room)
+    :precondition (and (at-out ?d) (open ?d) (droom ?d ?r))
+    :effect (and (not (at-out ?d)) (at-in ?d) (at ?r))
+  )
+
+  (:action exit
+    :parameters (?d - door ?r - room)
+    :precondition (and (at-in ?d) (open ?d) (droom ?d ?r))
+    :effect (and (not (at-in ?d)) (not (at ?r)) (at-out ?d))
+  )
+  
+  (:action sense-open
+    :parameters (?d - door)
+    :precondition (at-out ?d) 
+    :sense (open ?d)
+  )
+
+  (:action sense-person
+    :parameters (?r - room)
+    :precondition (at ?r) 
+    :sense (personin ?r)
+  )
+
+  (:action sense-printer-status-red
+    :parameters (?p - printer ?l - location)
+    :precondition (and (at ?l) (printerat ?p ?l))
+    :sense (printer-stat ?p red)
+  )
+
+  (:action tell-printer-status
+    :parameters (?p - printer)
+    :precondition (and (same-location) (printer-stat ?p red))
+    :effect (told-printer-stat ?p)
+  )
+
+  (:axiom 
+    :vars (?r - room ?d - door)
+    :context (and (at-in ?d) (personin ?r) (droom ?d ?r))
+    :implies (same-location)
+  )
+
+)
+
+(define (problem DIAG-p1)
+  (:domain DIAG)
+  
+  (:formula-init
+    (and 
+    (conn home locprinter1) (conn locprinter1 home)
+    ;(conn home locprinter2) (conn locprinter2 home)
+    (dconn home door1)
+    (dconn home door2)
+    (dconn home door3)
+    (dconn locprinter1 door3)
+    (droom door1 room1)
+    (droom door2 room2)
+    (droom door3 room3)
+    (printerat printer1 locprinter1)
+    ;(printerat printer2 locprinter2)
+    (personin room1)
+    (at home)
+    ;UNKNOWN
+    ;(open door3)
+    ;(printer-stat printer1 red)
+    )
+  )
+
+  (:goal
+
+   ;;(at-in door3)
+
+   ;;(and (at-in door3) (personin room3))
+
+   ;;(same-location)
+
+   ;; (or (not (printer-stat printer1 red)) (told-printer-stat printer1))
+
+   (or (and (at home) (not (printer-stat printer1 red))) (and (at home) (told-printer-stat printer1)) )
+   
+  )
+)
+
+
